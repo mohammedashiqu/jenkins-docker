@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Build docker image') {
             steps {
-                withDockerContainer('ashiqummathoor/myapp') {
-    // some block
-}
+                sh 'docker build -t myapp .'
             }
         }
     }
