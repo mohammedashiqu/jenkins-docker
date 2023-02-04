@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build docker image') {
             steps {
-                sh 'sudo docker build -t myapp .'
+                dockerImage = docker.build("monishavasu/my-react-app:latest")
             }
         }
     }
