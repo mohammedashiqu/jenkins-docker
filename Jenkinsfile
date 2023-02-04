@@ -25,5 +25,22 @@ pipeline {
                 sh 'sudo docker push ashiqummathoor/mytestimage'
             }
         }
+	stage('update new image') {
+            steps {
+                sh 'sudo docker pull ashiqummathoor/mytestimage'
+            }
+        }
+	stage('delete existing image') {
+            steps {
+                sh 'sudo docker stop app'
+		sh 'sudo docker rm app'
+		sh 'sudo docker rmi ashiqummathoor/mytestimage'
+            }
+        }
+	stage('run new image') {
+            steps {
+                sh 'sudo docker run -d -p 1000:80 --name app ashiqummathoor/mytestimage'
+            }
+        }
     }
 }
