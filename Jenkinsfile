@@ -5,7 +5,7 @@ pipeline {
 	}
 
     stages {
-        stage('clone repo') {
+        stage('arun clone repo') {
             steps {
                 git branch: 'main', url: 'https://github.com/mohammedashiqu/jenkins-docker.git'
             }
