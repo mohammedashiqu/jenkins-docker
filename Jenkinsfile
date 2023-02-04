@@ -42,5 +42,10 @@ pipeline {
                 sh 'sudo docker run -d -p 1000:80 --name app ashiqummathoor/mytestimage'
             }
         }
+	stage('update new image kubernetes') {
+            steps {
+                sh 'sudo kubectl replace --force -f /var/lib/jenkins/workspace/project'
+            }
+        }
     }
 }
